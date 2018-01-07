@@ -1,0 +1,22 @@
+{
+    "dashboard": "Principal",
+    "charts": "Caracteres",
+    "menu": "Menú",
+    "newrestaurant":"Novo restaurante",
+    "categories":"Categorias",
+    "profile":"Perfil",
+    "users":"Usuários",
+    "logout":"Sair",
+    "language": "Linguagem",
+    "form.payment":"Tipo de Pagamento",
+    "cupons":"Cupons",
+    "list.coupons":"Lista de cupons",
+    "price.placeholder":"Apenas valores numérico",
+    "amount":"Quantidade",
+    "name":"Nome",
+    "value":"Valor",
+    "activated":"Ativado",
+    "options":"Opções",
+    "privated":"Privado",
+    "discount":"Desconto"
+}
