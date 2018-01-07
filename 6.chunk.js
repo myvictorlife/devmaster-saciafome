@@ -155,9 +155,8 @@ var StatusComponent = (function () {
         if (this.showAudio) {
             this.audio = new Audio();
             this.audio.src = "assets/audio/door-bell.mp3";
-            this.audio.load();
             this.audio.autoplay = true;
-            this.audio.play();
+            this.audio.load();
         }
     };
     StatusComponent.prototype.changeAudio = function (status) {
