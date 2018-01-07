@@ -1014,7 +1014,7 @@ let CONFIG = {
     //url: "https://prod.saciafome.com"
     //url: "http://localhost:8000"
     //url: "http://dev-saciafome-com.umbler.net"
-    url: "https://dev.saciafome.com/"
+    url: "https://dev.saciafome.com"
 }  
 
 /***/ }),
