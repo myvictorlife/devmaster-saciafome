@@ -33,5 +33,16 @@
     "actived":"Ativo",
     "action":"Ação",
     "start":"Iniciar",
-    "stop":"Parar"
+    "stop":"Parar",
+    "time":"Horário",
+    "orders.detail":"Ver pedido",
+    "form.payment":"Forma de Pagamento",
+    "deliver":"Entregar",
+    "frete":"Frete",
+    "discount":"Desconto",
+    "closed":"Fechar",
+    "email":"Email",
+    "phone":"Telefone",
+    "orders":"Pedidos",
+    "change.status":"Mudar"
 }

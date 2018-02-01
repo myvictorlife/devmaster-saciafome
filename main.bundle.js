@@ -1016,8 +1016,8 @@ var _a, _b;
 let CONFIG = {
     //url: "https://prod.saciafome.com"
     //url: "http://localhost:8000"
-    //url: "http://dev-saciafome-com.umbler.net"
-    url: "https://dev.saciafome.com"
+    url: "http://dev-saciafome-com.umbler.net"
+    //url: "https://dev.saciafome.com"
 }  
 
 /***/ }),
@@ -1434,11 +1434,51 @@ var OrdersService = (function () {
             return __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__["Observable"].throw(error);
         });
     };
+    OrdersService.prototype.updateAttendant = function (orderId) {
+        var user = this.loginService.getUser();
+        var attendant = {
+            id: orderId,
+            userId: user.id,
+            userName: user.name,
+            userEmail: user.email
+        };
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]();
+        headers.append('authorization', this.getToken());
+        return this.http.post(this.url + "/orders/attendant", attendant, {
+            headers: headers
+        })
+            .map(function (res) {
+            return res.json();
+        })
+            .catch(function (error) {
+            return __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__["Observable"].throw(error);
+        });
+    };
     OrdersService.prototype.getAll = function () {
         return this.orders;
     };
     OrdersService.prototype.getToken = function () {
         return this.loginService.getToken();
+    };
+    OrdersService.prototype.editStatus = function (order) {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]();
+        headers.append('authorization', this.getToken());
+        return this.http.put(this.url + "/orders/status", order, {
+            headers: headers
+        })
+            .map(function (res) {
+            var result = res.json().data;
+            for (var i = 0; i < _this.orders.length; i++) {
+                if (_this.orders[i].id === order.id) {
+                    _this.orders[i].status = order.status;
+                }
+            }
+            return res.json();
+        })
+            .catch(function (error) {
+            return __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__["Observable"].throw(error);
+        });
     };
     return OrdersService;
 }());
@@ -1607,6 +1647,7 @@ var RestaurantService = (function () {
         this.http = http;
         this.loginService = loginService;
         this.restaurants = [];
+        this.restaurantsWithTime = [];
         this.populate().subscribe(function (result) {
             _this.restaurants = result.data;
         });
@@ -1654,6 +1695,21 @@ var RestaurantService = (function () {
                     _this.restaurants[i] = res.json().data;
                 }
             }
+            return res.json();
+        })
+            .catch(function (error) {
+            return __WEBPACK_IMPORTED_MODULE_5_rxjs_Observable__["Observable"].throw(error);
+        });
+    };
+    RestaurantService.prototype.findAllWithTime = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]();
+        headers.append('authorization', this.getToken());
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_4__config_service__["a" /* CONFIG */].url + "/restaurant/time", {
+            headers: headers
+        })
+            .map(function (res) {
+            _this.restaurantsWithTime = res.json().data;
             return res.json();
         })
             .catch(function (error) {
