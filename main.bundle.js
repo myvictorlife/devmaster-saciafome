@@ -1028,7 +1028,8 @@ var _a, _b;
 var CONFIG = {
     //url: "https://prod.saciafome.com"
     //url: "http://localhost:8000"
-    url: "https://app-saciafome.herokuapp.com"
+    //url: "https://app-saciafome.herokuapp.com"
+    url: "https://uaifoody.com"
 };
 //# sourceMappingURL=config.service.js.map
 
@@ -1206,8 +1207,7 @@ var DashboardService = (function () {
     DashboardService.prototype.calculateByDates = function (start, end) {
         var send = {
             start: start,
-            end: end,
-            status: '4'
+            end: end
         };
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]();
         headers.append('authorization', this.getToken());
